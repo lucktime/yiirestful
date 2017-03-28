@@ -17,6 +17,10 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 [![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
 
 DIRECTORY STRUCTURE
+
+
+配置好了yii2 的restful 方式的Api接口，方便以后直接使用。
+
 -------------------
 
 ```
