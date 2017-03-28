@@ -15,6 +15,9 @@ $config = [
     'components' => [
         'request' => [
           'csrfParam' => '_csrf-api',
+          'parsers' => [
+              'application/json' => 'yii\web\JsonParser',
+          ],
             // 'cookieValidationKey' => 'w3BnewAWmCrjijzkiLucYD5Ty1Ym_V9F',
         ],
         'user' => [
@@ -56,16 +59,22 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+              ['class' => 'yii\rest\UrlRule', 'controller' =>  ['v1/pocket'],],
             ],
         ],
     ],
+    'modules' => [
+      'api-v1' => [
+         'class' => 'api\modules\v1\Module',
+      ],
+   ],
     'params' => $params,
 ];
 
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
-        'allowedIPs' => ['192.168.0.111'],
+        'allowedIPs' => ['*'],
         'class' => 'yii\debug\Module',
     ];
     $config['bootstrap'][] = 'gii';
