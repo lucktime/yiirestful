@@ -3,27 +3,29 @@
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'install',
 1 verbose cli   'cz-conventional-changelog',
-1 verbose cli   '--save-dev' ]
+1 verbose cli   '--save-dev',
+1 verbose cli   '--force' ]
 2 info using npm@2.14.7
 3 info using node@v4.2.0
-4 verbose install initial load of /Users/liujian/Documents/pocket_it/package.json
-5 verbose stack Error: Invalid name: "yiisoft/yii2-app-advanced"
-5 verbose stack     at ensureValidName (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:331:15)
-5 verbose stack     at Object.module.exports.fixNameField (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:210:5)
-5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:32:38
-5 verbose stack     at Array.forEach (native)
-5 verbose stack     at normalize (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:31:15)
-5 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:338:5)
-5 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
-5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:300:12
-5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:76:16
-5 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
-6 verbose cwd /Users/liujian/Documents/pocket_it
-7 error Darwin 16.1.0
-8 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "cz-conventional-changelog" "--save-dev"
-9 error node v4.2.0
-10 error npm  v2.14.7
-11 error Invalid name: "yiisoft/yii2-app-advanced"
-12 error If you need help, you may report this error at:
-12 error     <https://github.com/npm/npm/issues>
-13 verbose exit [ 1, true ]
+4 warn using --force I sure hope you know what you are doing.
+5 verbose install initial load of /Users/liujian/Documents/pocket_it/package.json
+6 verbose stack Error: Invalid name: "yiisoft/yii2-app-advanced"
+6 verbose stack     at ensureValidName (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:331:15)
+6 verbose stack     at Object.module.exports.fixNameField (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:210:5)
+6 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:32:38
+6 verbose stack     at Array.forEach (native)
+6 verbose stack     at normalize (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:31:15)
+6 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:338:5)
+6 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
+6 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:300:12
+6 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:76:16
+6 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
+7 verbose cwd /Users/liujian/Documents/pocket_it
+8 error Darwin 16.1.0
+9 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "cz-conventional-changelog" "--save-dev" "--force"
+10 error node v4.2.0
+11 error npm  v2.14.7
+12 error Invalid name: "yiisoft/yii2-app-advanced"
+13 error If you need help, you may report this error at:
+13 error     <https://github.com/npm/npm/issues>
+14 verbose exit [ 1, true ]
