@@ -90,15 +90,9 @@ class Wechat_user extends \yii\db\ActiveRecord
         $errCode=$wxBizDataCrypt->decryptData($encryptedData,$iv,$data);
         return ['errCode'=>$errCode,'data'=>json_decode($data),'session_key'=>$session_key];
     }
+    //通过open_id 和 user_role 获取用户的详细信息。 还可以判断用户在该身份下是否存在。
+    public function getPerOrEnterInfo($open_id,$user_role){
 
-
-    public function login(){
-      return true;
-      // if ($this->validate()) {
-      // Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
-      // return $this->getUser();
-      // } else {
-      // return false;
-      // }
     }
+
 }
