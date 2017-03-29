@@ -1,0 +1,58 @@
+{
+	"id": "182a6c21-0c36-3fa3-92e1-1ee8fa2ec839",
+	"name": "测试接口，验证接口是否标准",
+	"description": "",
+	"order": [
+		"9f94bf87-9203-f76e-d5ac-a38e87cd7df9"
+	],
+	"folders": [],
+	"timestamp": 1490713271547,
+	"owner": "1347609",
+	"public": false,
+	"requests": [
+		{
+			"id": "9f94bf87-9203-f76e-d5ac-a38e87cd7df9",
+			"headers": "",
+			"url": " 192.168.0.104:8089/api-v1/wechat_user/show",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "len",
+					"value": "8",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "money",
+					"value": "5",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "count",
+					"value": "500",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "type",
+					"value": "0",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1490739851952,
+			"name": "json 接口规范化",
+			"description": "192.168.0.104:8089/api-v1/wechat_user/show",
+			"collectionId": "182a6c21-0c36-3fa3-92e1-1ee8fa2ec839",
+			"responses": []
+		}
+	]
+}
