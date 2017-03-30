@@ -40,7 +40,7 @@
                     {
                         "name": "encryptedData",
                         "in": "path",
-                        "description": "\u8c03\u7528wx.getUserInfo \u641c\u7d22\u4f1a\u83b7\u53d6\u5230 encryptedData,\u9700\u8981\u505aencodeURIComponent(res.encryptedData)\u5728\u53d1\u9001\u8fc7\u53bb",
+                        "description": "\u8c03\u7528wx.getUserInfo \u641c\u7d22\u4f1a\u83b7\u53d6\u5230 encryptedData,\u9700\u8981encodeURIComponent(res.encryptedData)\u64cd\u4f5c\u518d\u53d1\u9001",
                         "required": true,
                         "type": "string"
                     },
