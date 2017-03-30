@@ -86,12 +86,18 @@ class Wechat_user extends \yii\db\ActiveRecord
 
         //返回结果 解密数据
         $data="";
-        $wxBizDataCrypt=new \WXBizDataCrypt($appid,$session_key);
-        $errCode=$wxBizDataCrypt->decryptData($encryptedData,$iv,$data);
+        $wxBizDataCrypt = new \WXBizDataCrypt($appid,$session_key);
+        $errCode = $wxBizDataCrypt->decryptData($encryptedData,$iv,$data);
         return ['errCode'=>$errCode,'data'=>json_decode($data),'session_key'=>$session_key];
     }
     //通过open_id 和 user_role 获取用户的详细信息。 还可以判断用户在该身份下是否存在。
     public function getPerOrEnterInfo($open_id,$user_role){
+
+      $rel = Wechat_user::find()->where(['openid' => $open_id,'role' => $user_role]);
+      if ($rel->exists() > 0){
+          return $rel->one();
+      }
+      return null;
 
     }
 

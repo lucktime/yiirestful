@@ -24,15 +24,15 @@
         "application/json"
     ],
     "paths": {
-        "/wechat_user/pocket_login/{code}/{iv}/{encryptedData}": {
+        "/wechat_user/pocket_login/{code}/{iv}/{encryptedData}/{user_role}": {
             "post": {
-                "description": "\u53c2\u6570\uff1acode\uff0cencryptedData\uff0civ,\u7528\u4e8ePost\u8bf7\u6c42, \u767b\u5f55\u7528\u6237\uff0c\u5e76\u8fd4\u56desession_3rd\uff0copen_id \u7ed9\u7528\u6237,\u7528\u6237\u5c06session_id session \u6d3e\u53d1\u5230\u5c0f\u7a0b\u5e8f\u5ba2\u6237\u7aef\u4e4b\u540e\uff0c\u53ef\u5c06\u5176\u5b58\u50a8\u5728 storage \uff0c\u7528\u4e8e\u540e\u7eed\u901a\u4fe1\u4f7f\u7528\u3002",
+                "description": "\u53c2\u6570\uff1acode\uff0cencryptedData\uff0civ,\u7528\u4e8ePost\u8bf7\u6c42, \u767b\u5f55\u7528\u6237\uff0c\u5e76\u8fd4\u56desession_3rd\uff0copen_id \u7ed9\u7528\u6237,\u7528\u6237\u5c06session_id session \u6d3e\u53d1\u5230\u5c0f\u7a0b\u5e8f\u5ba2\u6237\u7aef\u4e4b\u540e\uff0c\u53ef\u5c06\u5176\u5b58\u50a8\u5728 storage \uff0c\u7528\u4e8e\u540e\u7eed\u901a\u4fe1\u4f7f\u7528\u3002\u7528\u4e8e\u4e2a\u4eba\u767b\u5f55",
                 "operationId": "pocket_login",
                 "parameters": [
                     {
                         "name": "code",
                         "in": "path",
-                        "description": "\u5ba2\u6237\u7aef\u83b7\u53d6\uff0c\u65f6\u65485\u5206\u949f",
+                        "description": "\u5ba2\u6237\u7aef\u83b7\u53d6\uff0c\u65f6\u65485\u5206\u949f,\u8c03\u7528wx.login \u4f1a\u83b7\u53d6\u5230 code",
                         "required": true,
                         "type": "string",
                         "format": "int64"
@@ -40,14 +40,21 @@
                     {
                         "name": "encryptedData",
                         "in": "path",
-                        "description": "encodeURIComponent(res.encryptedData)",
+                        "description": "\u8c03\u7528wx.getUserInfo \u641c\u7d22\u4f1a\u83b7\u53d6\u5230 encryptedData,\u9700\u8981\u505aencodeURIComponent(res.encryptedData)\u5728\u53d1\u9001\u8fc7\u53bb",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "iv",
                         "in": "path",
-                        "description": "res.iv",
+                        "description": "\u8c03\u7528wx.getUserInfo \u641c\u7d22\u4f1a\u83b7\u53d6\u5230 iv",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_role",
+                        "in": "path",
+                        "description": "\u767b\u5f55\u7528\u6237\u89d2\u8272\u7c7b\u578b 3\uff1a\u4e2a\u4eba 4\uff1a\u4f01\u4e1a",
                         "required": true,
                         "type": "string"
                     }

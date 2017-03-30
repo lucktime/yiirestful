@@ -9,12 +9,7 @@ class Wechat_userController extends BaseController
 {
   //ajax post 请求无法通过导致 400错误
     public $enableCsrfValidation = false;
-    /**
-     * 版本功能：微信小程序的登录接口实现。
-     * 更新时间：2017年03月29日
-     * 参数传递：通过 code,得到openid 和 session_key
-     * json 数据返回：eg:$code = 200,$status = 1, $msg = '加载成功',$data = []
-     */
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -26,7 +21,7 @@ class Wechat_userController extends BaseController
  *     description="参数：code，encryptedData，iv,用于Post请求, 登录用户，并返回session_3rd，open_id 给用户,用户将session_id session 派发到小程序客户端之后，可将其存储在 storage ，用于后续通信使用。用于个人登录",
  *     operationId="pocket_login",
  *     @SWG\Parameter(
- *         description="客户端获取，时效5分钟",
+ *         description="客户端获取，时效5分钟,调用wx.login 会获取到 code",
  *         format="int64",
  *         in="path",
  *         name="code",
@@ -36,14 +31,14 @@ class Wechat_userController extends BaseController
  *   @SWG\Parameter(
  *     name="encryptedData",
  *     in="path",
- *     description="encodeURIComponent(res.encryptedData)",
+ *     description="调用wx.getUserInfo 搜索会获取到 encryptedData,需要encodeURIComponent(res.encryptedData)操作再发送",
  *     required=true,
  *     type="string"
  *   ),
  *   @SWG\Parameter(
  *     name="iv",
  *     in="path",
- *     description="res.iv",
+ *     description="调用wx.getUserInfo 搜索会获取到 iv",
  *     required=true,
  *     type="string"
  *   ),
@@ -102,13 +97,14 @@ class Wechat_userController extends BaseController
             //  return $session_3rd;
           // return json_encode($msg);
           //下面if 循环待测试，未完成。。go on
-          if($msg['errCode']==0){
-             $open_id=$msg['data']->openId;
+          if($msg['errCode'] == 0){
+             $open_id = $msg['data']->openId;
              $we_user = new Wechat_user();
              // 判断数据库是否存在微信身份下的（个人信息或企业信息）
-             $info=$we_user->getPerOrEnterInfo($open_id,$user_role);
+             $info = $we_user->getPerOrEnterInfo($open_id,$user_role);
 
              if(!$info||empty($info)){
+               
                $users_db->addUser(['open_id'=>$open_id,'last_time'=>['exp','now()']]); //用户信息入库
                $info=$users_db->getUserInfo($open_id);                  //获取用户信息
                $session_id=`head -n 80 /dev/urandom | tr -dc A-Za-z0-9 | head -c 168`;  //生成3rd_session
